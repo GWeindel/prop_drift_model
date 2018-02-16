@@ -29,6 +29,9 @@ class ProportionalDiffusion(object):
         
         if rt is not None and accuracy is not None and stimulus_strength is not None:
             self.data = pd.DataFrame({'rt': rt, 'accuracy': accuracy, 'stimulus_strength': stimulus_strength})
+
+            # remove null responses
+            self.data = self.data.loc[pd.notnull(self.data['rt'])]
         else:
             self.data = None
         
