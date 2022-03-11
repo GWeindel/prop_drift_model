@@ -106,7 +106,7 @@ class ProportionalDiffusion(object):
         if self.data is None:
             raise(IOError('No data provided to be fitted...'))
 
-        bounds = [(0, 50), (0, 100), (0, 2)]  # k, Aprime, t0
+        bounds = [(0, 200), (0, 100), (0, 2)]  # k, Aprime, t0
         opt = scipy.optimize.differential_evolution(func=self.obj, 
                                                     bounds=bounds)
         self.kfit = opt.x[0]
